@@ -1,0 +1,58 @@
+{
+  "name": "0cc88ddd-5024-4278-b545-5c8286f3220f",
+  "displayName": "Validate Driving License",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.response = \"OK\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Your driving license is valid. We can proceed with the payment." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetPage": "Payment",
+    "name": "dfb54453-dc57-4d2a-8a65-c5738c375d82"
+  }, {
+    "condition": "$session.params.response != \"OK\"",
+    "triggerFulfillment": {
+      "conditionalCases": [ {
+        "cases": [ {
+          "condition": "$session.params.response = \"KO_AGE\"",
+          "caseContent": [ {
+            "message": {
+              "text": {
+                "text": [ "Unfortunately our company requires the minimum age for car rental to be 21. Let me transfer you to an agent." ]
+              },
+              "languageCode": "en"
+            }
+          } ]
+        }, {
+          "condition": "$session.params.response = \"KO_EXP\"",
+          "caseContent": [ {
+            "message": {
+              "text": {
+                "text": [ "Unfortunately your driving license is expired. Let me transfer you to an agent." ]
+              },
+              "languageCode": "en"
+            }
+          } ]
+        }, {
+          "caseContent": [ {
+            "message": {
+              "text": {
+                "text": [ "Unfortunately your driving license is not valid. Let me transfer you to an agent." ]
+              },
+              "languageCode": "en"
+            }
+          } ]
+        } ]
+      } ]
+    },
+    "targetPage": "Contact Agent",
+    "name": "46b642d0-478e-41e2-a7a4-b4c6cc2b8c03"
+  } ]
+}

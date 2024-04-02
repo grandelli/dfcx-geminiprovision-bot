@@ -1,0 +1,11 @@
+{
+  "name": "04855ac9-132e-4320-8039-179f0ac92cae",
+  "displayName": "driving-license-webhook",
+  "genericWebService": {
+    "uri": "https://us-central1-vertexai-mlops-workshops.cloudfunctions.net/driving-license-webhook",
+    "serviceAgentAuth": "ID_TOKEN"
+  },
+  "timeout": {
+    "seconds": 30
+  }
+}

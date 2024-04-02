@@ -1,0 +1,25 @@
+{
+  "name": "bf58e976-7fed-478b-b10a-e67d73e51417",
+  "displayName": "Acquire Driving License",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I need to validate that you're allowed to rent this car. Please upload your driving license" ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "file.upload",
+    "triggerFulfillment": {
+      "webhook": "driving-license-webhook",
+      "tag": "confirm"
+    },
+    "targetPage": "Validate Driving License",
+    "name": "8aa04de3-e05b-48e7-bdb8-86ddfd17f9fd"
+  } ],
+  "description": "This page relies on Gemini Pro Vision to extract and confirm driving license info"
+}
